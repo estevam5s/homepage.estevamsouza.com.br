@@ -1,555 +1,691 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Estevam Souza - Hub Digital com todos os links importantes">
     <title>Estevam Souza - Hub Digital</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Dify Chatbot Configuration -->
+    <script>
+        window.difyChatbotConfig = { token: 'SHSExuFO0XD8jAZj' }
+    </script>
+    <script src="https://udify.app/embed.min.js" id="SHSExuFO0XD8jAZj" defer></script>
     <style>
+        #dify-chatbot-bubble-button {
+            background-color: #1C64F2 !important;
+        }
+        #dify-chatbot-bubble-window {
+            width: 24rem !important;
+            height: 40rem !important;
+        }
+
         :root {
-            --primary: #4a90e2;
-            --secondary: #63f5aa;
-            --accent: #ff6b6b;
-            --neon: #00ff9d;
-            --dark: #0a0a2e;
+            --primary-color: #2d00f7;
+            --secondary-color: #00e0ff;
+            --background: #030014;
+            --text-color: #ffffff;
             --card-bg: rgba(255, 255, 255, 0.05);
+            --hover-color: #6a00f4;
         }
 
-        @keyframes backgroundPulse {
-            0%, 100% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
-        @keyframes neonGlow {
-            0%, 100% {
-                text-shadow: 0 0 10px var(--neon),
-                           0 0 20px var(--neon),
-                           0 0 30px var(--neon);
-            }
-            50% {
-                text-shadow: 0 0 20px var(--neon),
-                           0 0 30px var(--neon),
-                           0 0 40px var(--neon);
-            }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', 'Arial', sans-serif;
         }
 
         body {
-            background: linear-gradient(-45deg, #0a0a2e, #1a1a3a, #2a2a4a, #0d254d);
-            background-size: 400% 400%;
-            animation: backgroundPulse 15s ease infinite;
+            background: var(--background);
+            color: var(--text-color);
+            line-height: 1.6;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(45, 0, 247, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(0, 224, 255, 0.1) 0%, transparent 20%);
             min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            padding: 20px;
+            overflow-x: hidden;
         }
 
         .container {
             max-width: 1400px;
-            width: 100%;
-            background: rgba(10, 10, 46, 0.8);
-            backdrop-filter: blur(20px);
-            border-radius: 30px;
-            padding: 40px;
-            box-shadow: 
-                0 8px 32px rgba(0, 0, 0, 0.3),
-                inset 0 0 80px rgba(74, 144, 226, 0.1),
-                0 0 20px rgba(99, 245, 170, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin: 0 auto;
+            padding: 2rem;
             position: relative;
-            overflow: hidden;
-        }
-
-        .container::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(99, 245, 170, 0.1) 0%, transparent 70%);
-            opacity: 0.5;
-            animation: backgroundPulse 10s linear infinite;
         }
 
         .profile {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 3rem;
             position: relative;
-            z-index: 1;
+            padding: 2rem;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .profile::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            filter: blur(50px);
+            z-index: -1;
+            opacity: 0.5;
         }
 
         .profile img {
-            width: 200px;
-            height: 200px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
             border: 4px solid transparent;
-            background: linear-gradient(45deg, var(--primary), var(--secondary)) border-box;
-            margin-bottom: 20px;
-            box-shadow: 
-                0 0 30px rgba(74, 144, 226, 0.3),
-                0 0 60px rgba(99, 245, 170, 0.2);
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            padding: 3px;
+            margin-bottom: 1.5rem;
             transition: transform 0.3s ease;
+            object-fit: cover;
         }
 
         .profile img:hover {
             transform: scale(1.05);
+            animation: pulse 2s infinite;
         }
 
-        h1 {
-            font-size: 3.5em;
-            margin-bottom: 15px;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
+        .profile h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: neonGlow 2s ease-in-out infinite;
+            animation: gradient 3s ease infinite;
+            background-size: 200% 200%;
         }
 
-        .bio {
-            font-size: 1.3em;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+        .profile p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1rem;
         }
 
-        .category {
-            position: relative;
-            margin-bottom: 50px;
-            padding: 20px;
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.02);
-            transition: transform 0.3s ease;
-        }
-
-        .category:hover {
-            transform: translateY(-5px);
-        }
-
-        .section-title {
-            font-size: 2em;
-            color: var(--neon);
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid rgba(99, 245, 170, 0.3);
+        .search-container {
+            margin-bottom: 3rem;
             display: flex;
-            align-items: center;
-            gap: 15px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
+            justify-content: center;
+            position: sticky;
+            top: 1rem;
+            z-index: 100;
         }
 
-        .section-title i {
-            font-size: 1.2em;
-            color: var(--primary);
-        }
-
-        .links-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
-
-        .link-card {
-            background: var(--card-bg);
-            padding: 25px;
-            border-radius: 20px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            text-decoration: none;
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(5px);
-        }
-
-        .link-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
+        .search-input {
             width: 100%;
-            height: 100%;
-            background: linear-gradient(
-                90deg,
-                transparent,
-                rgba(255, 255, 255, 0.2),
-                transparent
-            );
-            transition: 0.5s;
-        }
-
-        .link-card:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 
-                0 10px 20px rgba(0, 0, 0, 0.2),
-                0 0 30px rgba(99, 245, 170, 0.1);
-            background: rgba(255, 255, 255, 0.1);
-            border-color: var(--neon);
-        }
-
-        .link-card:hover::before {
-            left: 100%;
-        }
-
-        .link-card i {
-            font-size: 28px;
-            width: 40px;
-            color: var(--primary);
+            max-width: 600px;
+            padding: 1rem 1.5rem;
+            border: none;
+            border-radius: 30px;
+            background: var(--card-bg);
+            color: var(--text-color);
+            font-size: 1.1rem;
+            outline: none;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
             transition: all 0.3s ease;
         }
 
-        .link-card:hover i {
-            color: var(--neon);
-            transform: scale(1.1);
+        .search-input:focus {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 20px rgba(0, 224, 255, 0.2);
+            transform: scale(1.02);
         }
 
-        .link-card span {
-            font-size: 1.2em;
-            color: #fff;
-            font-weight: 500;
-            letter-spacing: 1px;
+        .sections {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .section {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section:hover {
+            transform: translateY(-10px);
+            border-color: var(--secondary-color);
+            box-shadow: 0 10px 30px rgba(0, 224, 255, 0.1);
+        }
+
+        .section h2 {
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--secondary-color), transparent);
+        }
+
+        .links {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .link {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .link:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(10px);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .link i {
+            margin-right: 1rem;
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            transition: transform 0.3s ease;
+        }
+
+        .link:hover i {
+            transform: scale(1.2);
+        }
+
+        .category-count {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+        }
+
+        #scrollToTop {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 999;
+        }
+
+        #scrollToTop.visible {
+            opacity: 1;
+        }
+
+        #scrollToTop:hover {
+            transform: translateY(-5px);
         }
 
         @media (max-width: 768px) {
             .container {
-                padding: 20px;
+                padding: 1rem;
             }
             
-            .links-grid {
+            .sections {
                 grid-template-columns: 1fr;
             }
 
-            h1 {
-                font-size: 2.5em;
-            }
-
-            .section-title {
-                font-size: 1.8em;
-            }
-
-            .link-card {
-                padding: 20px;
+            .section {
+                padding: 1.5rem;
             }
         }
 
-        .scroll-container {
-            max-height: 80vh;
-            overflow-y: auto;
-            padding-right: 20px;
-            scrollbar-width: thin;
-            scrollbar-color: var(--primary) transparent;
+        .no-results {
+            text-align: center;
+            padding: 2rem;
+            color: rgba(255, 255, 255, 0.7);
+            display: none;
         }
 
-        .scroll-container::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        .scroll-container::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        .scroll-container::-webkit-scrollbar-thumb {
-            background-color: var(--primary);
-            border-radius: 20px;
-            border: 3px solid transparent;
+        .no-results.show {
+            display: block;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="scroll-container">
-            <div class="profile">
-                <img src="https://media.licdn.com/dms/image/v2/D4D03AQG1LthzngDNMQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1729293996206?e=1740614400&v=beta&t=r_bdY8NkyzQsYMuxAv_qSDt0SHIv5LSSE6-Bmc0Uf7Y" alt="Estevam Souza">
-                <h1>Estevam Souza</h1>
-                <p class="bio">Desenvolvedor & DevOps Engineer</p>
-            </div>
+        <div class="profile">
+            <img src="https://media.licdn.com/dms/image/v2/D4D03AQG1LthzngDNMQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1729293996206?e=1740614400&v=beta&t=r_bdY8NkyzQsYMuxAv_qSDt0SHIv5LSSE6-Bmc0Uf7Y" 
+                 alt="Estevam Souza">
+            <h1>Estevam Souza</h1>
+            <p>Desenvolvedor Full Stack & Especialista em IA</p>
+        </div>
 
+        <div class="search-container">
+            <input type="text" 
+                   class="search-input" 
+                   placeholder="Pesquisar links..." 
+                   id="searchInput" 
+                   autocomplete="off">
+        </div>
+
+        <div class="sections">
             <!-- Serviços -->
-            <div class="category">
-                <div class="section-title">
-                    <i class="fas fa-network-wired"></i>
-                    Serviços
-                </div>
-                <div class="links-grid">
-                    <a href="https://chatwoot.estevamsouza.com.br" class="link-card">
-                        <i class="fas fa-comments"></i>
-                        <span>Chatwoot</span>
+            <div class="section">
+                <h2>Serviços</h2>
+                <div class="links">
+                    <a href="https://dify.estevamsouza.com.br" class="link">
+                        <i class="fas fa-server"></i>Dify
                     </a>
-                    <a href="https://hasura.estevamsouza.com.br" class="link-card">
-                        <i class="fas fa-database"></i>
-                        <span>Hasura</span>
+                    <a href="https://chatwoot.estevamsouza.com.br" class="link">
+                        <i class="fas fa-comments"></i>Chatwoot
                     </a>
-                    <a href="https://dify.estevamsouza.com.br" class="link-card">
-                        <i class="fas fa-robot"></i>
-                        <span>Dify</span>
+                    <a href="https://hasura.estevamsouza.com.br" class="link">
+                        <i class="fas fa-database"></i>Hasura
                     </a>
-                    <a href="https://typebot.estevamsouza.com.br" class="link-card">
-                        <i class="fas fa-robot"></i>
-                        <span>Typebot</span>
+                    <a href="https://evolution.estevamsouza.com.br" class="link">
+                        <i class="fas fa-code-branch"></i>Evolution
                     </a>
-                    <a href="https://n8n.estevamsouza.com.br" class="link-card">
-                        <i class="fas fa-network-wired"></i>
-                        <span>n8n</span>
+                    <a href="https://typebot.estevamsouza.com.br" class="link">
+                        <i class="fas fa-robot"></i>Typebot
                     </a>
-                    <a href="https://portainer.estevamsouza.com.br" class="link-card">
-                        <i class="fas fa-ship"></i>
-                        <span>Portainer</span>
+                    <a href="https://n8n.estevamsouza.com.br" class="link">
+                        <i class="fas fa-network-wired"></i>n8n
+                    </a>
+                    <a href="https://portainer.estevamsouza.com.br" class="link">
+                        <i class="fas fa-ship"></i>Portainer
                     </a>
                 </div>
             </div>
 
-            <!-- Plataformas de Serviço -->
-            <div class="category">
-                <div class="section-title">
-                    <i class="fas fa-cloud"></i>
-                    Plataformas
-                </div>
-                <div class="links-grid">
-                    <a href="https://render.com/" class="link-card">
-                        <i class="fas fa-server"></i>
-                        <span>Render</span>
+            <!-- Portfólio -->
+            <div class="section">
+                <h2>Portfólio</h2>
+                <div class="links">
+                    <a href="https://landingpage.estevamsouza.com.br" class="link">
+                        <i class="fas fa-globe"></i>Landing Page
                     </a>
-                    <a href="https://railway.app/" class="link-card">
-                        <i class="fas fa-train"></i>
-                        <span>Railway</span>
+                    <a href="https://www.linkedin.com/in/estevam-souza" class="link">
+                        <i class="fab fa-linkedin"></i>LinkedIn
                     </a>
-                    <a href="https://mailchimp.com/pt-br/" class="link-card">
-                        <i class="fas fa-envelope"></i>
-                        <span>Mailchimp</span>
+                    <a href="https://blog.estevamsouza.com.br" class="link">
+                        <i class="fas fa-blog"></i>Blog
                     </a>
-                    <a href="https://www.zoho.com/pt-br/mail/" class="link-card">
-                        <i class="fas fa-envelope-open-text"></i>
-                        <span>Zoho Mail</span>
+                    <a href="https://www.estevamsouza.com.br" class="link">
+                        <i class="fas fa-user"></i>Website
                     </a>
-                </div>
-            </div>
-
-            <!-- Templates -->
-            <div class="category">
-                <div class="section-title">
-                    <i class="fas fa-paint-brush"></i>
-                    Templates
-                </div>
-                <div class="links-grid">
-                    <a href="https://elements.envato.com/pt-br/web-templates" class="link-card">
-                        <i class="fas fa-boxes"></i>
-                        <span>Envato Elements</span>
+                    <a href="https://newsletter.estevamsouza.com.br" class="link">
+                        <i class="fas fa-envelope"></i>Newsletter
                     </a>
-                    <a href="https://www.templatemonster.com/" class="link-card">
-                        <i class="fas fa-store"></i>
-                        <span>Template Monster</span>
+                    <a href="https://artigos.estevamsouza.com.br" class="link">
+                        <i class="fas fa-file-alt"></i>Artigos
                     </a>
-                    <a href="https://themeforest.net/category/all" class="link-card">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span>ThemeForest</span>
+                    <a href="https://setup.estevamsouza.com.br" class="link">
+                        <i class="fas fa-desktop"></i>Setup
+                    </a>
+                    <a href="https://vscode.estevamsouza.com.br" class="link">
+                        <i class="fas fa-code"></i>VSCode
                     </a>
                 </div>
             </div>
 
-            <!-- Chatbots -->
-            <div class="category">
-                <div class="section-title">
-                    <i class="fas fa-robot"></i>
-                    Chatbots
-                </div>
-                <div class="links-grid">
-                    <a href="https://manychat.com/" class="link-card">
-                        <i class="fas fa-comments"></i>
-                        <span>ManyChat</span>
+            <!-- Templates e Serviços -->
+            <div class="section">
+                <h2>Templates & Serviços</h2>
+                <div class="links">
+                    <a href="https://render.com" class="link">
+                        <i class="fas fa-server"></i>Render
                     </a>
-                    <a href="https://typebot.io/" class="link-card">
-                        <i class="fas fa-comment-dots"></i>
-                        <span>Typebot</span>
+                    <a href="https://railway.com" class="link">
+                        <i class="fas fa-train"></i>Railway
                     </a>
-                    <a href="https://leadster.com.br/" class="link-card">
-                        <i class="fas fa-headset"></i>
-                        <span>Leadster</span>
+                    <a href="https://mailchimp.com/pt-br" class="link">
+                        <i class="fab fa-mailchimp"></i>MailChimp
                     </a>
-                </div>
-            </div>
-
-            <!-- Domínios -->
-            <div class="category">
-                <div class="section-title">
-                    <i class="fas fa-globe"></i>
-                    Domínios
-                </div>
-                <div class="links-grid">
-                    <a href="https://vercel.com/domains" class="link-card">
-                        <i class="fas fa-v"></i>
-                        <span>Vercel</span>
+                    <a href="https://elements.envato.com/pt-br/web-templates" class="link">
+                        <i class="fas fa-palette"></i>Envato Elements Templates
                     </a>
-                    <a href="https://registro.br/" class="link-card">
-                        <i class="fas fa-globe-americas"></i>
-                        <span>Registro.br</span>
+                    <a href="https://www.templatemonster.com" class="link">
+                        <i class="fas fa-brush"></i>Template Monster
                     </a>
-                    <a href="https://www.netlify.com/" class="link-card">
-                        <i class="fas fa-network-wired"></i>
-                        <span>Netlify</span>
+                    <a href="https://themeforest.net/category/all" class="link">
+                        <i class="fas fa-store"></i>ThemeForest
+                    </a>
+                    <a href="https://www.zoho.com/pt-br/mail" class="link">
+                        <i class="fas fa-envelope"></i>Zoho Mail
                     </a>
                 </div>
             </div>
 
-            <!-- Portfolio -->
-            <div class="category">
-              <div class="section-title">
-                  <i class="fas fa-briefcase"></i>
-                  Portfolio
-              </div>
-              <div class="links-grid">
-                  <a href="https://landingpage.estevamsouza.com.br/" class="link-card">
-                      <i class="fas fa-rocket"></i>
-                      <span>Landing Page</span>
-                  </a>
-                  <a href="https://blog.estevamsouza.com.br/" class="link-card">
-                      <i class="fas fa-blog"></i>
-                      <span>Blog</span>
-                  </a>
-                  <a href="https://www.estevamsouza.com.br/" class="link-card">
-                      <i class="fas fa-globe"></i>
-                      <span>Website</span>
-                  </a>
-                  <a href="https://newsletter.estevamsouza.com.br/" class="link-card">
-                      <i class="fas fa-envelope"></i>
-                      <span>Newsletter</span>
-                  </a>
-                  <a href="https://artigos.estevamsouza.com.br/" class="link-card">
-                      <i class="fas fa-file-alt"></i>
-                      <span>Artigos</span>
-                  </a>
-                  <a href="https://setup.estevamsouza.com.br/" class="link-card">
-                      <i class="fas fa-laptop-code"></i>
-                      <span>Setup</span>
-                  </a>
-                  <a href="https://www.linkedin.com/in/estevam-souza/overlay/1730776596333/single-media-viewer/" class="link-card">
-                      <i class="fas fa-file-pdf"></i>
-                      <span>Currículo</span>
-                  </a>
-              </div>
-          </div>
+            <!-- Currículo e Vagas -->
+            <div class="section">
+                <h2>Currículo & Vagas</h2>
+                <div class="links">
+                    <a href="https://www.linkedin.com/in/estevam-souza/overlay/1730776596333/single-media-viewer/?type=DOCUMENT&profileId=ACoAACm6b_QBezL5lfr48f3yqBlHmvETB2WMPt4" class="link">
+                        <i class="fas fa-file-pdf"></i>Currículo LinkedIn
+                    </a>
+                    <a href="https://profile.indeed.com/p/estevams-2704c7s" class="link">
+                        <i class="fas fa-briefcase"></i>Indeed Profile
+                    </a>
+                    <a href="https://remoteok.com" class="link">
+                        <i class="fas fa-laptop-house"></i>Remote OK
+                    </a>
+                </div>
+            </div>
 
-          <!-- Desenvolvimento -->
-          <div class="category">
-              <div class="section-title">
-                  <i class="fas fa-code"></i>
-                  Desenvolvimento
-              </div>
-              <div class="links-grid">
-                  <a href="https://vscode.dev/?vscode-lang=pt-br" class="link-card">
-                      <i class="fas fa-code"></i>
-                      <span>VSCode Web</span>
-                  </a>
-                  <a href="https://codepen.io/estevam5s" class="link-card">
-                      <i class="fab fa-codepen"></i>
-                      <span>CodePen</span>
-                  </a>
-                  <a href="https://docs.nestjs.com/" class="link-card">
-                      <i class="fas fa-book"></i>
-                      <span>NestJS Docs</span>
-                  </a>
-                  <a href="https://github.com/yourusername" class="link-card">
-                      <i class="fab fa-github"></i>
-                      <span>GitHub</span>
-                  </a>
-                  <a href="https://gitlab.com/yourusername" class="link-card">
-                      <i class="fab fa-gitlab"></i>
-                      <span>GitLab</span>
-                  </a>
-                  <a href="https://bitbucket.org/yourusername" class="link-card">
-                      <i class="fab fa-bitbucket"></i>
-                      <span>Bitbucket</span>
-                  </a>
-              </div>
-          </div>
+            <!-- Domínios e Hosting -->
+            <div class="section">
+                <h2>Domínios & Hosting</h2>
+                <div class="links">
+                    <a href="https://vercel.com/domains" class="link">
+                        <i class="fas fa-globe"></i>Vercel Domains
+                    </a>
+                    <a href="https://registro.br" class="link">
+                        <i class="fas fa-server"></i>Registro.br
+                    </a>
+                    <a href="https://www.netlify.com" class="link">
+                        <i class="fas fa-cloud"></i>Netlify
+                    </a>
+                    <a href="https://hpanel.hostinger.com/websites" class="link">
+                        <i class="fas fa-server"></i>Hostinger
+                    </a>
+                    <a href="https://id.heroku.com/login" class="link">
+                        <i class="fas fa-cloud-upload-alt"></i>Heroku
+                    </a>
+                </div>
+            </div>
 
-          <!-- Inteligência Artificial -->
-          <div class="category">
-              <div class="section-title">
-                  <i class="fas fa-brain"></i>
-                  Inteligência Artificial
-              </div>
-              <div class="links-grid">
-                  <a href="https://claude.ai" class="link-card">
-                      <i class="fas fa-robot"></i>
-                      <span>Claude AI</span>
-                  </a>
-                  <a href="https://chatgpt.com/auth/login" class="link-card">
-                      <i class="fas fa-comment-dots"></i>
-                      <span>ChatGPT</span>
-                  </a>
-                  <a href="https://www.perplexity.ai/" class="link-card">
-                      <i class="fas fa-lightbulb"></i>
-                      <span>Perplexity AI</span>
-                  </a>
-              </div>
-          </div>
+            <!-- Desenvolvimento -->
+            <div class="section">
+                <h2>Desenvolvimento</h2>
+                <div class="links">
+                    <a href="https://vscode.dev" class="link">
+                        <i class="fas fa-code"></i>VSCode Web
+                    </a>
+                    <a href="https://codepen.io/estevam5s" class="link">
+                        <i class="fab fa-codepen"></i>CodePen
+                    </a>
+                    <a href="https://docs.nestjs.com" class="link">
+                        <i class="fas fa-book"></i>NestJS Docs
+                    </a>
+                </div>
+            </div>
 
-          <!-- Cloud -->
-          <div class="category">
-              <div class="section-title">
-                  <i class="fas fa-cloud"></i>
-                  Cloud
-              </div>
-              <div class="links-grid">
-                  <a href="https://www.digitalocean.com/" class="link-card">
-                      <i class="fab fa-digital-ocean"></i>
-                      <span>DigitalOcean</span>
-                  </a>
-              </div>
-          </div>
+            <!-- IoT -->
+            <div class="section">
+                <h2>IoT & Desenvolvimento</h2>
+                <div class="links">
+                    <a href="https://www.amazon.com/ap/signin" class="link">
+                        <i class="fab fa-amazon"></i>Alexa Skills Development
+                    </a>
+                </div>
+            </div>
 
-          <!-- Segurança -->
-          <div class="category">
-              <div class="section-title">
-                  <i class="fas fa-shield-alt"></i>
-                  Segurança
-              </div>
-              <div class="links-grid">
-                  <a href="https://bitwarden.com/" class="link-card">
-                      <i class="fas fa-key"></i>
-                      <span>Bitwarden</span>
-                  </a>
-              </div>
-          </div>
+            <!-- Cyber Segurança -->
+            <div class="section">
+                <h2>Cyber Segurança</h2>
+                <div class="links">
+                    <a href="https://tryhackme.com/r/hacktivities" class="link">
+                        <i class="fas fa-shield-alt"></i>TryHackMe
+                    </a>
+                    <a href="https://www.hispy.io" class="link">
+                        <i class="fas fa-user-secret"></i>Hispy
+                    </a>
+                    <a href="https://www.exploit-db.com" class="link">
+                        <i class="fas fa-bug"></i>Exploit-DB
+                    </a>
+                    <a href="https://forums.kali.org" class="link">
+                        <i class="fas fa-dragon"></i>Kali Forums
+                    </a>
+                    <a href="https://www.exploit-db.com/google-hacking-database" class="link">
+                        <i class="fab fa-google"></i>Google Hacking DB
+                    </a>
+                    <a href="https://www.offsec.com" class="link">
+                        <i class="fas fa-graduation-cap"></i>OffSec
+                    </a>
+                    <a href="https://www.shodan.io" class="link">
+                        <i class="fas fa-search"></i>Shodan
+                    </a>
+                    <a href="https://wifipumpkin3.github.io/docs/getting-started" class="link">
+                        <i class="fas fa-wifi"></i>WiFi Pumpkin
+                    </a>
+                </div>
+            </div>
 
-          <!-- Social e Apoio -->
-          <div class="category">
-              <div class="section-title">
-                  <i class="fas fa-heart"></i>
-                  Social e Apoio
-              </div>
-              <div class="links-grid">
-                  <a href="https://www.linkedin.com/in/estevam-souza" class="link-card">
-                      <i class="fab fa-linkedin"></i>
-                      <span>LinkedIn</span>
-                  </a>
-                  <a href="https://www.patreon.com/profile?u=148884361" class="link-card">
-                      <i class="fab fa-patreon"></i>
-                      <span>Patreon</span>
-                  </a>
-                  <a href="https://buymeacoffee.com/estevamsl/extras" class="link-card">
-                      <i class="fas fa-coffee"></i>
-                      <span>Buy Me a Coffee</span>
-                  </a>
-              </div>
-          </div>
-      </div>
-  </div>
+            <!-- IA -->
+            <div class="section">
+                <h2>Inteligência Artificial</h2>
+                <div class="links">
+                    <a href="https://claude.ai" class="link">
+                        <i class="fas fa-brain"></i>Claude AI
+                    </a>
+                    <a href="https://chatgpt.com/auth/login" class="link">
+                        <i class="fas fa-robot"></i>ChatGPT
+                    </a>
+                    <a href="https://www.perplexity.ai" class="link">
+                        <i class="fas fa-lightbulb"></i>Perplexity AI
+                    </a>
+                    <a href="https://gemini.google.com" class="link">
+                        <i class="fab fa-google"></i>Google Gemini
+                    </a>
+                    <a href="https://www.blackbox.ai" class="link">
+                        <i class="fas fa-cube"></i>Blackbox AI
+                    </a>
+                    <a href="https://copilot.microsoft.com" class="link">
+                        <i class="fab fa-microsoft"></i>Microsoft Copilot
+                    </a>
+                    <a href="https://mapify.so/pt/editor" class="link">
+                        <i class="fas fa-map"></i>Mapify
+                    </a>
+                    <a href="https://www.cognition.ai/blog/introducing-devin" class="link">
+                        <i class="fas fa-microchip"></i>Devin AI
+                    </a>
+                    <a href="https://platform.openai.com/playground" class="link">
+                        <i class="fas fa-flask"></i>OpenAI Playground
+                    </a>
+                </div>
+            </div>
+
+            <!-- Nuvem -->
+            <div class="section">
+                <h2>Cloud & DevOps</h2>
+                <div class="links">
+                    <a href="https://www.digitalocean.com" class="link">
+                        <i class="fab fa-digital-ocean"></i>DigitalOcean
+                    </a>
+                    <a href="https://account.termius.com/login" class="link">
+                        <i class="fas fa-terminal"></i>Termius
+                    </a>
+                </div>
+            </div>
+
+            <!-- Cofre de Senhas -->
+            <div class="section">
+                <h2>Segurança & Senhas</h2>
+                <div class="links">
+                    <a href="https://bitwarden.com" class="link">
+                        <i class="fas fa-key"></i>Bitwarden
+                    </a>
+                </div>
+            </div>
+
+            <!-- Monetização -->
+            <div class="section">
+                <h2>Monetização</h2>
+                <div class="links">
+                    <a href="https://www.patreon.com/profile?u=148884361" class="link">
+                        <i class="fab fa-patreon"></i>Patreon
+                    </a>
+                    <a href="https://buymeacoffee.com/estevamsl/extras" class="link">
+                        <i class="fas fa-coffee"></i>Buy Me a Coffee
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button id="scrollToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Função de pesquisa aprimorada
+        const searchInput = document.getElementById('searchInput');
+        const sections = document.querySelectorAll('.section');
+        const links = document.querySelectorAll('.link');
+        let searchTimeout;
+
+        function normalizeText(text) {
+            return text.toLowerCase()
+                      .normalize("NFD")
+                      .replace(/[\u0300-\u036f]/g, "")
+                      .trim();
+        }
+
+        function debounce(func, wait) {
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(searchTimeout);
+                    func(...args);
+                };
+                clearTimeout(searchTimeout);
+                searchTimeout = setTimeout(later, wait);
+            };
+        }
+
+        function performSearch(searchTerm) {
+            const normalizedSearchTerm = normalizeText(searchTerm);
+            let hasVisibleLinks = false;
+
+            links.forEach(link => {
+                const text = normalizeText(link.textContent);
+                const shouldShow = text.includes(normalizedSearchTerm);
+                link.style.display = shouldShow ? 'flex' : 'none';
+                
+                if (shouldShow) {
+                    hasVisibleLinks = true;
+                }
+            });
+
+            sections.forEach(section => {
+                const visibleLinks = section.querySelectorAll('.link[style="display: flex"]').length;
+                const categoryCount = section.querySelector('.category-count');
+                
+                if (visibleLinks === 0) {
+                    section.style.display = 'none';
+                } else {
+                    section.style.display = 'block';
+                    if (categoryCount) {
+                        categoryCount.textContent = `${visibleLinks} ${visibleLinks === 1 ? 'link' : 'links'}`;
+                    }
+                }
+            });
+
+            // Mensagem de nenhum resultado
+            const noResultsMsg = document.querySelector('.no-results');
+            if (!hasVisibleLinks) {
+                if (!noResultsMsg) {
+                    const msg = document.createElement('div');
+                    msg.className = 'no-results show';
+                    msg.innerHTML = 'Nenhum resultado encontrado';
+                    document.querySelector('.sections').prepend(msg);
+                } else {
+                    noResultsMsg.classList.add('show');
+                }
+            } else if (noResultsMsg) {
+                noResultsMsg.classList.remove('show');
+            }
+        }
+
+        // Event Listeners
+        searchInput.addEventListener('input', debounce(function(e) {
+            performSearch(e.target.value);
+        }, 300));
+
+        // Botão Voltar ao Topo
+        const scrollToTopButton = document.getElementById('scrollToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopButton.classList.add('visible');
+            } else {
+                scrollToTopButton.classList.remove('visible');
+            }
+        });
+
+        scrollToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Animações nos links
+        document.querySelectorAll('.link').forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateX(10px)';
+            });
+            
+            link.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateX(0)';
+            });
+        });
+
+        // Contador de links por categoria
+        document.querySelectorAll('.section').forEach(section => {
+            const linksCount = section.querySelectorAll('.link').length;
+            const categoryCount = document.createElement('span');
+            categoryCount.className = 'category-count';
+            categoryCount.textContent = `${linksCount} ${linksCount === 1 ? 'link' : 'links'}`;
+            section.appendChild(categoryCount);
+        });
+    </script>
 </body>
 </html>

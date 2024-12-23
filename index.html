@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estevam Souza - Hub Digital</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+    <style>
+        :root {
+            --primary: #4a90e2;
+            --secondary: #63f5aa;
+            --accent: #ff6b6b;
+            --neon: #00ff9d;
+            --dark: #0a0a2e;
+            --card-bg: rgba(255, 255, 255, 0.05);
+        }
+
+        @keyframes backgroundPulse {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        @keyframes neonGlow {
+            0%, 100% {
+                text-shadow: 0 0 10px var(--neon),
+                           0 0 20px var(--neon),
+                           0 0 30px var(--neon);
+            }
+            50% {
+                text-shadow: 0 0 20px var(--neon),
+                           0 0 30px var(--neon),
+                           0 0 40px var(--neon);
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(-45deg, #0a0a2e, #1a1a3a, #2a2a4a, #0d254d);
+            background-size: 400% 400%;
+            animation: backgroundPulse 15s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            width: 100%;
+            background: rgba(10, 10, 46, 0.8);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 0 80px rgba(74, 144, 226, 0.1),
+                0 0 20px rgba(99, 245, 170, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(99, 245, 170, 0.1) 0%, transparent 70%);
+            opacity: 0.5;
+            animation: backgroundPulse 10s linear infinite;
+        }
+
+        .profile {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 4px solid transparent;
+            background: linear-gradient(45deg, var(--primary), var(--secondary)) border-box;
+            margin-bottom: 20px;
+            box-shadow: 
+                0 0 30px rgba(74, 144, 226, 0.3),
+                0 0 60px rgba(99, 245, 170, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .profile img:hover {
+            transform: scale(1.05);
+        }
+
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: neonGlow 2s ease-in-out infinite;
+        }
+
+        .bio {
+            font-size: 1.3em;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .category {
+            position: relative;
+            margin-bottom: 50px;
+            padding: 20px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.02);
+            transition: transform 0.3s ease;
+        }
+
+        .category:hover {
+            transform: translateY(-5px);
+        }
+
+        .section-title {
+            font-size: 2em;
+            color: var(--neon);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(99, 245, 170, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .section-title i {
+            font-size: 1.2em;
+            color: var(--primary);
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .link-card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 20px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+        }
+
+        .link-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.2),
+                transparent
+            );
+            transition: 0.5s;
+        }
+
+        .link-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 
+                0 10px 20px rgba(0, 0, 0, 0.2),
+                0 0 30px rgba(99, 245, 170, 0.1);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--neon);
+        }
+
+        .link-card:hover::before {
+            left: 100%;
+        }
+
+        .link-card i {
+            font-size: 28px;
+            width: 40px;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .link-card:hover i {
+            color: var(--neon);
+            transform: scale(1.1);
+        }
+
+        .link-card span {
+            font-size: 1.2em;
+            color: #fff;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .section-title {
+                font-size: 1.8em;
+            }
+
+            .link-card {
+                padding: 20px;
+            }
+        }
+
+        .scroll-container {
+            max-height: 80vh;
+            overflow-y: auto;
+            padding-right: 20px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary) transparent;
+        }
+
+        .scroll-container::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .scroll-container::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .scroll-container::-webkit-scrollbar-thumb {
+            background-color: var(--primary);
+            border-radius: 20px;
+            border: 3px solid transparent;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="scroll-container">
+            <div class="profile">
+                <img src="https://media.licdn.com/dms/image/v2/D4D03AQG1LthzngDNMQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1729293996206?e=1740614400&v=beta&t=r_bdY8NkyzQsYMuxAv_qSDt0SHIv5LSSE6-Bmc0Uf7Y" alt="Estevam Souza">
+                <h1>Estevam Souza</h1>
+                <p class="bio">Desenvolvedor & DevOps Engineer</p>
+            </div>
+
+            <!-- Serviços -->
+            <div class="category">
+                <div class="section-title">
+                    <i class="fas fa-network-wired"></i>
+                    Serviços
+                </div>
+                <div class="links-grid">
+                    <a href="https://chatwoot.estevamsouza.com.br" class="link-card">
+                        <i class="fas fa-comments"></i>
+                        <span>Chatwoot</span>
+                    </a>
+                    <a href="https://hasura.estevamsouza.com.br" class="link-card">
+                        <i class="fas fa-database"></i>
+                        <span>Hasura</span>
+                    </a>
+                    <a href="https://dify.estevamsouza.com.br" class="link-card">
+                        <i class="fas fa-robot"></i>
+                        <span>Dify</span>
+                    </a>
+                    <a href="https://typebot.estevamsouza.com.br" class="link-card">
+                        <i class="fas fa-robot"></i>
+                        <span>Typebot</span>
+                    </a>
+                    <a href="https://n8n.estevamsouza.com.br" class="link-card">
+                        <i class="fas fa-network-wired"></i>
+                        <span>n8n</span>
+                    </a>
+                    <a href="https://portainer.estevamsouza.com.br" class="link-card">
+                        <i class="fas fa-ship"></i>
+                        <span>Portainer</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Plataformas de Serviço -->
+            <div class="category">
+                <div class="section-title">
+                    <i class="fas fa-cloud"></i>
+                    Plataformas
+                </div>
+                <div class="links-grid">
+                    <a href="https://render.com/" class="link-card">
+                        <i class="fas fa-server"></i>
+                        <span>Render</span>
+                    </a>
+                    <a href="https://railway.app/" class="link-card">
+                        <i class="fas fa-train"></i>
+                        <span>Railway</span>
+                    </a>
+                    <a href="https://mailchimp.com/pt-br/" class="link-card">
+                        <i class="fas fa-envelope"></i>
+                        <span>Mailchimp</span>
+                    </a>
+                    <a href="https://www.zoho.com/pt-br/mail/" class="link-card">
+                        <i class="fas fa-envelope-open-text"></i>
+                        <span>Zoho Mail</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Templates -->
+            <div class="category">
+                <div class="section-title">
+                    <i class="fas fa-paint-brush"></i>
+                    Templates
+                </div>
+                <div class="links-grid">
+                    <a href="https://elements.envato.com/pt-br/web-templates" class="link-card">
+                        <i class="fas fa-boxes"></i>
+                        <span>Envato Elements</span>
+                    </a>
+                    <a href="https://www.templatemonster.com/" class="link-card">
+                        <i class="fas fa-store"></i>
+                        <span>Template Monster</span>
+                    </a>
+                    <a href="https://themeforest.net/category/all" class="link-card">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>ThemeForest</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Chatbots -->
+            <div class="category">
+                <div class="section-title">
+                    <i class="fas fa-robot"></i>
+                    Chatbots
+                </div>
+                <div class="links-grid">
+                    <a href="https://manychat.com/" class="link-card">
+                        <i class="fas fa-comments"></i>
+                        <span>ManyChat</span>
+                    </a>
+                    <a href="https://typebot.io/" class="link-card">
+                        <i class="fas fa-comment-dots"></i>
+                        <span>Typebot</span>
+                    </a>
+                    <a href="https://leadster.com.br/" class="link-card">
+                        <i class="fas fa-headset"></i>
+                        <span>Leadster</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Domínios -->
+            <div class="category">
+                <div class="section-title">
+                    <i class="fas fa-globe"></i>
+                    Domínios
+                </div>
+                <div class="links-grid">
+                    <a href="https://vercel.com/domains" class="link-card">
+                        <i class="fas fa-v"></i>
+                        <span>Vercel</span>
+                    </a>
+                    <a href="https://registro.br/" class="link-card">
+                        <i class="fas fa-globe-americas"></i>
+                        <span>Registro.br</span>
+                    </a>
+                    <a href="https://www.netlify.com/" class="link-card">
+                        <i class="fas fa-network-wired"></i>
+                        <span>Netlify</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Portfolio -->
+            <div class="category">
+              <div class="section-title">
+                  <i class="fas fa-briefcase"></i>
+                  Portfolio
+              </div>
+              <div class="links-grid">
+                  <a href="https://landingpage.estevamsouza.com.br/" class="link-card">
+                      <i class="fas fa-rocket"></i>
+                      <span>Landing Page</span>
+                  </a>
+                  <a href="https://blog.estevamsouza.com.br/" class="link-card">
+                      <i class="fas fa-blog"></i>
+                      <span>Blog</span>
+                  </a>
+                  <a href="https://www.estevamsouza.com.br/" class="link-card">
+                      <i class="fas fa-globe"></i>
+                      <span>Website</span>
+                  </a>
+                  <a href="https://newsletter.estevamsouza.com.br/" class="link-card">
+                      <i class="fas fa-envelope"></i>
+                      <span>Newsletter</span>
+                  </a>
+                  <a href="https://artigos.estevamsouza.com.br/" class="link-card">
+                      <i class="fas fa-file-alt"></i>
+                      <span>Artigos</span>
+                  </a>
+                  <a href="https://setup.estevamsouza.com.br/" class="link-card">
+                      <i class="fas fa-laptop-code"></i>
+                      <span>Setup</span>
+                  </a>
+                  <a href="https://www.linkedin.com/in/estevam-souza/overlay/1730776596333/single-media-viewer/" class="link-card">
+                      <i class="fas fa-file-pdf"></i>
+                      <span>Currículo</span>
+                  </a>
+              </div>
+          </div>
+
+          <!-- Desenvolvimento -->
+          <div class="category">
+              <div class="section-title">
+                  <i class="fas fa-code"></i>
+                  Desenvolvimento
+              </div>
+              <div class="links-grid">
+                  <a href="https://vscode.dev/?vscode-lang=pt-br" class="link-card">
+                      <i class="fas fa-code"></i>
+                      <span>VSCode Web</span>
+                  </a>
+                  <a href="https://codepen.io/estevam5s" class="link-card">
+                      <i class="fab fa-codepen"></i>
+                      <span>CodePen</span>
+                  </a>
+                  <a href="https://docs.nestjs.com/" class="link-card">
+                      <i class="fas fa-book"></i>
+                      <span>NestJS Docs</span>
+                  </a>
+                  <a href="https://github.com/yourusername" class="link-card">
+                      <i class="fab fa-github"></i>
+                      <span>GitHub</span>
+                  </a>
+                  <a href="https://gitlab.com/yourusername" class="link-card">
+                      <i class="fab fa-gitlab"></i>
+                      <span>GitLab</span>
+                  </a>
+                  <a href="https://bitbucket.org/yourusername" class="link-card">
+                      <i class="fab fa-bitbucket"></i>
+                      <span>Bitbucket</span>
+                  </a>
+              </div>
+          </div>
+
+          <!-- Inteligência Artificial -->
+          <div class="category">
+              <div class="section-title">
+                  <i class="fas fa-brain"></i>
+                  Inteligência Artificial
+              </div>
+              <div class="links-grid">
+                  <a href="https://claude.ai" class="link-card">
+                      <i class="fas fa-robot"></i>
+                      <span>Claude AI</span>
+                  </a>
+                  <a href="https://chatgpt.com/auth/login" class="link-card">
+                      <i class="fas fa-comment-dots"></i>
+                      <span>ChatGPT</span>
+                  </a>
+                  <a href="https://www.perplexity.ai/" class="link-card">
+                      <i class="fas fa-lightbulb"></i>
+                      <span>Perplexity AI</span>
+                  </a>
+              </div>
+          </div>
+
+          <!-- Cloud -->
+          <div class="category">
+              <div class="section-title">
+                  <i class="fas fa-cloud"></i>
+                  Cloud
+              </div>
+              <div class="links-grid">
+                  <a href="https://www.digitalocean.com/" class="link-card">
+                      <i class="fab fa-digital-ocean"></i>
+                      <span>DigitalOcean</span>
+                  </a>
+              </div>
+          </div>
+
+          <!-- Segurança -->
+          <div class="category">
+              <div class="section-title">
+                  <i class="fas fa-shield-alt"></i>
+                  Segurança
+              </div>
+              <div class="links-grid">
+                  <a href="https://bitwarden.com/" class="link-card">
+                      <i class="fas fa-key"></i>
+                      <span>Bitwarden</span>
+                  </a>
+              </div>
+          </div>
+
+          <!-- Social e Apoio -->
+          <div class="category">
+              <div class="section-title">
+                  <i class="fas fa-heart"></i>
+                  Social e Apoio
+              </div>
+              <div class="links-grid">
+                  <a href="https://www.linkedin.com/in/estevam-souza" class="link-card">
+                      <i class="fab fa-linkedin"></i>
+                      <span>LinkedIn</span>
+                  </a>
+                  <a href="https://www.patreon.com/profile?u=148884361" class="link-card">
+                      <i class="fab fa-patreon"></i>
+                      <span>Patreon</span>
+                  </a>
+                  <a href="https://buymeacoffee.com/estevamsl/extras" class="link-card">
+                      <i class="fas fa-coffee"></i>
+                      <span>Buy Me a Coffee</span>
+                  </a>
+              </div>
+          </div>
+      </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,125 @@
+Treino de codigo
+https://leetcode.com/
+https://www.codewars.com/
+https://www.hackerrank.com/
+
+Treino de digitacao
+https://monkeytype.com/
+
+Carteira de cripto
+https://accounts.binance.com/pt-BR/login?return_to=aHR0cHM6Ly93d3cuYmluYW5jZS5jb20vcHQtQlIvbXkvZGFzaGJvYXJk
+https://market.bitypreco.com/profile/account
+https://www.bity.com.br/
+https://safepal.com/
+
+Armazenamento em nuvem
+https://www.dropbox.com/home
+
+IA
+https://chat.deepseek.com/
+https://grok.com/
+https://v0.dev/
+https://lovable.dev/
+https://bolt.new/
+
+Desenvolvimento
+https://www.npmjs.com/
+https://stackblitz.com/
+https://codepen.io/
+https://colab.research.google.com/
+https://replit.com/~
+https://gitpod.io/
+https://codesandbox.io/
+https://codeanywhere.com/solutions/collaborate
+
+ReactJS
+https://react-icons.github.io/react-icons/search/#q=bitcoin
+
+Curriculo
+https://gitconnected.com/estevam5s?configure_resume=true
+https://www.canva.com/
+
+Servicos
+https://dashboard.emailjs.com/sign-in
+https://devtools.nestjs.com/login
+https://www.cloudflare.com/pt-br/
+https://hostzone.com.br/
+https://www.lastpass.com/pt/features/password-generator
+http://192.168.1.140/admin/groups/clients -> Pi-hole
+https://www.dochub.com/
+https://bitwarden.estevamsouza.com.br/#/login
+https://supabase.com/dashboard/projects
+http://147.93.66.4:3000/projects/services/create -> Easypanel
+https://demo.bytebase.com/landing
+https://dashboard.stripe.com/login?redirect=/settings/user
+https://www.star-history.com/#estevam5/estevam5s&Date
+https://app.leadster.com.br/
+https://dashboard.ngrok.com/login/mfa/recovery?state=iHCMeyYIHPTE3flOPuyu2SSpN16TnFXZvKemOuZOxU7z10gEr71KwDYnCVH6EcuiyOAuAimEpEZa3nrgO4XkBoqnCROKsZS_0FTt8J847OX18gkUlR10Qz9BroSWDxd4Uy4l7vAyh_Ua1zsXoyaLEVpOZRlBEzlRoNnqKVClIhY4vOMNxnu4
+
+Cyber Segurança
+https://dashboard.ngrok.com/login/mfa/recovery?state=iHCMeyYIHPTE3flOPuyu2SSpN16TnFXZvKemOuZOxU7z10gEr71KwDYnCVH6EcuiyOAuAimEpEZa3nrgO4XkBoqnCROKsZS_0FTt8J847OX18gkUlR10Qz9BroSWDxd4Uy4l7vAyh_Ua1zsXoyaLEVpOZRlBEzlRoNnqKVClIhY4vOMNxnu4
+
+Servidor
+http://147.93.66.4:3000/projects/services/create -> Easypanel
+https://192.168.1.109:8006/#nodes/proxmox
+https://tteck.github.io/Proxmox/#n8n-lxc
+http://192.168.1.111/login?redirect=/ -> Umbrel
+
+Currículo & Vagas
+https://www.glassdoor.com.br/Vaga/index.htm
+https://www.freelancer.com/login
+
+Segurança & Senhas
+https://www.yubico.com/products/yubico-authenticator/#h-download-yubico-authenticator
+
+Documentacao de codigo
+https://nestjs.com/
+https://nodejs.org/docs/latest/api/
+https://www.prisma.io/docs
+https://sequelize.org/docs/v7/getting-started/
+https://docs.npmjs.com/
+https://devdocs.io/
+https://expressjs.com/
+
+Domínios & Hosting
+https://www.locaweb.com.br/registro-de-dominio-web/
+https://pt.wix.com/dominio/gratis
+https://www.shopify.com/br/dominios
+https://www.canva.com/pt_br/dominios/
+https://www.dominioweb.com.br/
+https://www.umbler.com/br/registro-de-dominio
+https://domains.squarespace.com/pt
+https://www.hostnet.com.br/registro-de-dominio/
+https://king.host/registro-de-dominio
+https://superdominios.org/
+
+VPN
+https://nordaccount.com/login/identifier?challenge=4%7C9d755e33426d458992e706dfd930ee00
+https://login.tailscale.com/admin/machines
+
+Servicos de Pagamentos
+https://www.paypal.com/signin
+https://accounts.binance.com/pt-BR/login?return_to=aHR0cHM6Ly93d3cuYmluYW5jZS5jb20vcHQtQlIvbXkvZGFzaGJvYXJk
+https://market.bitypreco.com/profile/account
+https://www.bity.com.br/
+https://safepal.com/
+
+Educacao
+https://www.udemy.com/
+https://cursos.dankicode.com/login
+https://www.origamid.com/conta/
+https://hotmart.com/pt-br/marketplace/produtos/ignite-6eb3n/K83217735E
+https://www.studocu.com/pt-br/home
+https://www.passeidireto.com/
+https://www.codecademy.com/
+https://www.w3schools.com/
+https://www.freecodecamp.org/
+https://github.com/apps/github-learning-lab
+
+E altere:
+https://llm.estevamsouza.com.br/signin
+https://chatwoot.estevamsouza.com.br/app/accounts/1/conversations/1
+https://evolutionapi.estevamsouza.com.br/manager/instance/f7cfff4b-47b7-4944-b5ca-e48e6f758f4a/dashboard
+https://automation.estevamsouza.com.br/home/workflows
+https://portainer.estevamsouza.com.br/#!/auth
+https://app.typebot.io/signin?redirectPath=/typebots?
